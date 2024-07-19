@@ -2,11 +2,13 @@ package com.simplePayment.simplePayment.services;
 
 import com.simplePayment.simplePayment.domain.user.User;
 import com.simplePayment.simplePayment.domain.user.UserType;
+import com.simplePayment.simplePayment.dtos.UserDTO;
 import com.simplePayment.simplePayment.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -28,6 +30,16 @@ public class UserService {
 
     public void saveUser(User user){
         this.userRepository.save(user);
+    }
+
+    public List<User> getAllUsers(){
+        return this.userRepository.findAll();
+    }
+
+    public User createUser(UserDTO data){
+        User newUser = new User(data);
+        this.saveUser(newUser);
+        return newUser;
     }
 
 }

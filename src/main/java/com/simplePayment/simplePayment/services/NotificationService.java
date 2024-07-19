@@ -23,5 +23,6 @@ public class NotificationService {
             System.out.println("Erro ao enviar a notificação.");
             throw new Exception("Serviço de notificação está fora do ar!");
         }*/
+        System.out.println("Notificacao enviada com sucesso!");
     }
 }
